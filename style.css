@@ -1,3 +1,14 @@
 #root {
-  color: red;
+  color: black;
+ 
+}
+
+.oneEpisode {
+   display: flex;
+   flex-direction: column;
+   background-color: white;
+}
+
+img {
+  width: 40%;
 }

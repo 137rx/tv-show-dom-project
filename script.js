@@ -3,13 +3,19 @@ function setup() {
   const allEpisodes = getAllEpisodes();
   episodeSearchBar(allEpisodes);
   makePageForEpisodes(allEpisodes);
+  selectBoxEpisode(allEpisodes);
+  matchEpisode(allEpisodes);
 }
+
+//lvl 100
 
 const rootElem = document.getElementById("root");
 
 let everyEpisode = document.createElement("div");
 everyEpisode.className = "allEpisodes";
 rootElem.appendChild(everyEpisode);
+let dataFrom = document.querySelector(".dataFrom");
+dataFrom.innerHTML = "All data from TVMaze.com";
 
 function episodeInfo(episode) {
   let eachEpisode = document.createElement("div");
@@ -36,6 +42,8 @@ function episodeInfo(episode) {
 function makePageForEpisodes(episodeList) {
   return episodeList.forEach((episode) => episodeInfo(episode));
 }
+
+//lvl 200
 
 function episodeSearchBar(episodeList) {
   let searchForm = document.createElement("form");
@@ -65,6 +73,39 @@ function episodeSearchBar(episodeList) {
     displayResultNumber.innerHTML = `Result ${filteredEpisodes.length}/${episodeList.length}`;
     everyEpisode.innerHTML = ``;
     return makePageForEpisodes(filteredEpisodes);
+  });
+}
+
+//lvl 300
+
+function selectBoxEpisode(episodeList) {
+  let selectBox = document.querySelector(".select-box");
+
+  console.log(selectBox);
+  episodeList.forEach((episode) => {
+    let seasonNumber =
+      episode.season > 10 ? episode.season : "0" + episode.season;
+    let episodeNumber =
+      episode.number > 10 ? episode.number : "0" + episode.number;
+    selectBox.innerHTML += `<option value="${episode.id}">S${seasonNumber}E${episodeNumber} - ${episode.name}</option>`;
+  });
+}
+
+function matchEpisode(episodeList) {
+  let selectBox = document.querySelector(".select-box");
+  let targetSelectAll = document.querySelector("#selectAll");
+  selectBox.addEventListener("change", (e) => {
+    everyEpisode.innerHTML = ` `;
+    if (!event.target.value) {
+      return makePageForEpisodes(episodeList);
+    } else {
+      let newEpisodeList = episodeList.filter((episode) => {
+        if (episode.id == event.target.value) {
+          return episode;
+        }
+      });
+      return makePageForEpisodes(newEpisodeList);
+    }
   });
 }
 

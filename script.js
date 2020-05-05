@@ -19,7 +19,7 @@ dataFrom.innerHTML = "All data from TVMaze.com";
 
 function episodeInfo(episode) {
   let eachEpisode = document.createElement("div");
-  eachEpisode.className = "oneEpisode";
+  eachEpisode.className = "oneEpisode col-12 sm-col-12 md-col-5 lg-col-3 ";
   everyEpisode.appendChild(eachEpisode);
 
   let seasonNumber =

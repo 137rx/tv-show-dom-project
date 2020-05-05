@@ -1,14 +1,85 @@
-#root {
+header {
+  height: 20%;
+  padding: 0%;
+  position: sticky;
+  z-index: 1;
+  top: 0;
+  right: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.title {
+  width: 100%;
+  background-color: white;
   color: black;
- 
+  margin-top: 0;
+  margin-bottom: 0;
+  padding: 3%;
+  font-size: 2em;
+  font-family: "Dancing Script", cursive;
+  overflow: hidden;
+}
+
+.title:after {
+  content: "";
+  display: inline-block;
+  height: 0.4em;
+  vertical-align: bottom;
+  width: 100%;
+  margin-right: -100%;
+  margin-left: 10px;
+  border-top: 0.1em solid rgb(82, 81, 81);
+}
+
+.forms {
+  background-color: #17232d;
+  padding: 3%;
+  display: flex;
+  flex-direction: row;
+}
+
+#root {
+  background-color: white;
+  display: flex;
+  flex-direction: row;
+}
+
+.allEpisodes {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  font-family: "Roboto", sans-serif;
 }
 
 .oneEpisode {
-   display: flex;
-   flex-direction: column;
-   background-color: white;
+  margin: 2%;
+  padding: 2%;
+  border: 4px double #566f6e;
 }
 
 img {
-  width: 40%;
+  width: 70%;
+}
+
+.content {
+  background-color: #17232d;
+  padding: 1%;
+  color: white;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.footerImg {
+  width: 6%;
+  border-radius: 25%;
+  border: 2px solid black;
+}
+
+.dataFrom {
+  color: white;
+  background-color: #17232d;
+  padding-left: 2%;
 }

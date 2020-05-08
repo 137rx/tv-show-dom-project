@@ -51,12 +51,18 @@ header {
   flex-wrap: wrap;
   justify-content: center;
   font-family: "Roboto", sans-serif;
+  
 }
 
 .oneEpisode {
   margin: 2%;
   padding: 2%;
   border: 4px double #566f6e;
+}
+
+.oneEpisode:hover{
+  background-color: rgb(226, 221, 221);
+  transform: scale(1.1);
 }
 
 img {
@@ -72,6 +78,7 @@ img {
   justify-content: center;
 }
 
+
 .footerImg {
   width: 6%;
   border-radius: 25%;
@@ -83,3 +90,4 @@ img {
   background-color: #17232d;
   padding-left: 2%;
 }
+

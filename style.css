@@ -39,6 +39,10 @@ header {
   flex-direction: row;
 }
 
+.search-form {
+  visibility: hidden;
+}
+
 #root {
   background-color: white;
   display: flex;
@@ -51,7 +55,6 @@ header {
   flex-wrap: wrap;
   justify-content: center;
   font-family: "Roboto", sans-serif;
-  
 }
 
 .oneEpisode {
@@ -78,6 +81,12 @@ img {
   justify-content: center;
 }
 
+footer {
+  position: fixed;
+  width: 100%;
+  bottom: 0;
+  margin-top:5%;
+}
 
 .footerImg {
   width: 6%;

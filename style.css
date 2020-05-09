@@ -39,9 +39,7 @@ header {
   flex-direction: row;
 }
 
-.search-form {
-  visibility: hidden;
-}
+
 
 #root {
   background-color: white;

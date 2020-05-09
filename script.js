@@ -52,7 +52,7 @@ let targetFirstDiv = document.querySelector(".search-form");
 
 targetFirstDiv.appendChild(searchForm);
 let searchBar = document.createElement("input");
-searchBar.setAttribute("type", "search");
+searchBar.setAttribute("type", "hidden");
 searchBar.setAttribute("placeholder", "Search...");
 searchForm.appendChild(searchBar);
 let displayResultNumber = document.createElement("label");
@@ -125,9 +125,10 @@ function selectBoxShow(showList) {
 function displayShows(showList) {
   selectShowBox.addEventListener("change", (event) => {
     everyEpisode.innerHTML = "";
-
+    
     showList.filter((show) => {
       if (event.target.value == show.id) {
+        searchBar.type += "search"
         return fetchShows(show.id);
       }
     });

@@ -125,10 +125,10 @@ function selectBoxShow(showList) {
 function displayShows(showList) {
   selectShowBox.addEventListener("change", (event) => {
     everyEpisode.innerHTML = "";
-    
+
     showList.filter((show) => {
       if (event.target.value == show.id) {
-        searchBar.type += "search"
+        searchBar.type += "search";
         return fetchShows(show.id);
       }
     });

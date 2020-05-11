@@ -1,11 +1,7 @@
 //You can edit ALL of the code here
 function setup() {
-  const allEpisodes = getAllEpisodes();
 
-  // episodeSearchBar(allEpisodes)
-  // makePageForEpisodes(allEpisodes);
-  // selectBoxEpisode(allEpisodes)
-  // matchEpisode(allEpisodes)
+  const allEpisodes = getAllEpisodes();
 
   const allShows = getAllShows();
   selectBoxShow(allShows);
@@ -24,10 +20,16 @@ function episodeInfo(episode) {
   eachEpisode.className = "oneEpisode col-12 sm-col-12 md-col-5 lg-col-3";
   everyEpisode.appendChild(eachEpisode);
 
-  let seasonNumber =
-    episode.season > 10 ? episode.season : "0" + episode.season;
-  let episodeNumber =
-    episode.number > 10 ? episode.number : "0" + episode.number;
+
+  function formatNumber(number){
+    return number > 10 ? number : "0" + number
+  }
+
+ let seasonNumber = formatNumber(episode.season)
+ let episodeNumber = formatNumber(episode.number)
+
+
+
 
   eachEpisode.textContent += `${episode.name} - S${seasonNumber}E${episodeNumber}`;
 
@@ -81,13 +83,14 @@ function episodeSearchBar(episodeList) {
 let selectEpisodeBox = document.querySelector(".select-box");
 
 function selectBoxEpisode(episodeList) {
-  selectEpisodeBox.innerHTML += `<option value=""> </option>`;
+
+  selectEpisodeBox.innerHTML = `<option value="">Select Episode</option>`;
 
   episodeList.forEach((episode) => {
     let seasonNumber =
-      episode.season > 10 ? episode.season : "0" + episode.season;
+      episode.season >= 10 ? episode.season : "0" + episode.season;
     let episodeNumber =
-      episode.number > 10 ? episode.number : "0" + episode.number;
+    episode.number >= 10 ? episode.number : "0" + episode.number;
     selectEpisodeBox.innerHTML += `<option value="${episode.id}">S${seasonNumber}E${episodeNumber} - ${episode.name}</option>`;
   });
 }
@@ -126,16 +129,16 @@ function displayShows(showList) {
   selectShowBox.addEventListener("change", (event) => {
     everyEpisode.innerHTML = "";
 
-    showList.filter((show) => {
+    showList.forEach((show) => {
       if (event.target.value == show.id) {
-        searchBar.type += "search";
-        return fetchShows(show.id);
+        searchBar.type = "search";
+        fetchShow(show.id);
       }
     });
   });
 }
 
-function fetchShows(showId) {
+function fetchShow(showId) {
   fetch(`https://api.tvmaze.com/shows/${showId}/episodes`)
     .then(function (response) {
       return response.json();
@@ -147,4 +150,6 @@ function fetchShows(showId) {
       matchEpisode(data);
     });
 }
+
+
 window.onload = setup;

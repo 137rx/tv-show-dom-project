@@ -5,16 +5,47 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>TV Show Project | Roxana (279Roxana)</title>
     <link href="style.css" rel="stylesheet" />
+    <link href="grid.css" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Roboto:ital@1&display=swap" rel="stylesheet">
     <link rel="icon" href="/favicon.ico" type="image/x-icon" />
   </head>
 
   <body>
+    <header class="container">
+      <div class="row">
+        <p class="title lg-col-12 col-12">Binge-worthy</p>
+        <div class="forms lg-col-12 col-12">
+          <div class="search-form lg-col-6 col-12 "></div>
+              <select class="selectShow">
+                <option value="" id="selectAllShows">Select show</option>
+              </select>
+              <select class="select-box lg-col-6 col-12">
+                  <option value="" id="selectAll">Select episode</option>
+              </select>
+        </div>
+      </div>
+  </header>
+  <main>
+  <div class="container">
+    <div class="row">
     <div id="root">
     </div>
-
+  </div>
+  </div>
+</main>
+    <footer>
+      <div class="container">
+        <div class="row">
+      <div class="content lg-col-12 col-12">
+        <img class="footerImg" src="favicon.ico">
+      <p class="dataFrom">All data from tvmaze.com</p>
+    </div>
+    </div>
+  
+    </footer>
     <!-- Loads a provided function called getAllEpisodes() which returns all episodes -->
     <script src="episodes.js"></script>
-
+    <script src="shows.js"></script>
     <!-- Loads YOUR javascript code -->
     <script src="script.js"></script>
   </body>

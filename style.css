@@ -39,8 +39,6 @@ header {
   flex-direction: row;
 }
 
-
-
 #root {
   background-color: white;
   display: flex;
@@ -98,3 +96,16 @@ footer {
   padding-left: 2%;
 }
 
+.search-form {
+  margin: 3%;
+}
+
+select{
+  width: 15%;
+  margin: 3%;
+}
+
+label {
+  margin-left: 2%;
+  color: white
+}
